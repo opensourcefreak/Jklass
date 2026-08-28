@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/week_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:textSize="16sp"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/day_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/colourful"
+        app:tabTextColor="@color/text_colour"
+        app:tabIndicatorHeight="4dp"
+        app:tabBackground="@color/background_dark" />
+
+    <net.opensourcefreak.jklass.external.NestedScrollableHost
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/calendar_day_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </net.opensourcefreak.jklass.external.NestedScrollableHost>
+</LinearLayout>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="vklass_login_portal_url" translatable="false">https://auth.vklass.se/</string>
+    <string name="vklass_main_page_url" translatable="false">https://app.vklass.se/</string>
+    <string name="vklass_calendar_data_format" translatable="false">start=%1$s&amp;end=%2$s</string>
+    <string name="app_name" translatable="false">Jklass</string>
+
+    <string name="greeting">Goddagens, %1$s</string>
+    <string name="main_fragment_name">Flöde</string>
+    <string name="schedule_fragment_name">Schema</string>
+    <string name="attendance_fragment_name">Närvaro</string>
+    <string name="event_cancelled">Inställd</string>
+    <string name="week_num_text">Vecka %1$d</string>
+
+    <string-array name="week_day_letters">
+        <item>M</item>
+        <item>T</item>
+        <item>O</item>
+        <item>T</item>
+        <item>F</item>
+    </string-array>
+</resources>
