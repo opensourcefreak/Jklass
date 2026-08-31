@@ -23,6 +23,10 @@ public class CalendarLayout extends ViewGroup {
         12,
         getResources().getDisplayMetrics());
 
+    public CalendarLayout(Context context) {
+        super(context);
+    }
+
     public CalendarLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }

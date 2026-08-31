@@ -1,6 +1,7 @@
 [versions]
-agp = "9.2.0"
+agp = "9.2.1"
 fragment = "1.8.9"
+glide = "5.0.9"
 gson = "2.14.0"
 appcompat = "1.6.1"
 hiltAndroid = "2.60.1"
@@ -13,7 +14,10 @@ coreKtx = "1.18.0"
 okhttpBom = "5.5.0"
 
 [libraries]
+annotations = { module = "com.github.bumptech.glide:annotations", version.ref = "glide" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 fragment = { module = "androidx.fragment:fragment", version.ref = "fragment" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
@@ -27,6 +31,7 @@ navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "n
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 okhttp = { module = "com.squareup.okhttp3:okhttp" }
 okhttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttpBom" }
+okhttp3-integration = { module = "com.github.bumptech.glide:okhttp3-integration", version.ref = "glide" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -1,5 +1,6 @@
 package net.opensourcefreak.jklass.ui.homepage;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -44,7 +45,6 @@ public class FeedFragment extends Fragment {
         super.onCreate(savedInstanceState);
         homepageDataProvider.buildHomePageData((homepageData) -> {
             this.homepageData = homepageData;
-            populateData();
         });
     }
 
@@ -84,24 +84,25 @@ public class FeedFragment extends Fragment {
         public class ViewHolder extends RecyclerView.ViewHolder {
             private final TextView bodyText;
             private final TextView titleText;
+            private int index;
 
             public ViewHolder(@NonNull View view) {
                 super(view);
 
-                view.setOnClickListener((v) ->
-                        Toast.makeText(getActivity(), "Unimplemented", Toast.LENGTH_SHORT).show()
-                );
+                view.setOnClickListener((v) -> {
+                    Intent intent = new Intent(getActivity(), NewsDetailsActivity.class);
+                    intent.putExtra("newsItem", localDataSet.get(index));
+                    startActivity(intent);
+                });
 
                 bodyText = view.findViewById(R.id.body);
                 titleText = view.findViewById(R.id.title);
             }
 
-            public void populateData(NewsItem data) {
+            public void populateData(NewsItem data, int index) {
                 titleText.setText(StringCompatUtil.translateEscapes(data.title));
-                bodyText.setText(data.text.isEmpty() ?
-                        StringCompatUtil.translateEscapes(data.introText) :
-                        StringCompatUtil.translateEscapes(data.text)
-                );
+                bodyText.setText(StringCompatUtil.translateEscapes(data.introText));
+                this.index = index;
             }
         }
 
@@ -116,7 +117,7 @@ public class FeedFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
-            ((ViewHolder) viewHolder).populateData(localDataSet.get(position));
+            ((ViewHolder) viewHolder).populateData(localDataSet.get(position), position);
         }
 
         @Override

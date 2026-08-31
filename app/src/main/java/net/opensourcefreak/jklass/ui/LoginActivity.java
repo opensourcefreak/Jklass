@@ -18,7 +18,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import net.opensourcefreak.jklass.R;
-import net.opensourcefreak.jklass.api2.LoginCookieProvider;
+import net.opensourcefreak.jklass.api2.CredentialProvider;
 import net.opensourcefreak.jklass.ui.homepage.MainActivity;
 
 import java.net.URLDecoder;
@@ -33,24 +33,13 @@ import kotlin.text.Regex;
 public class LoginActivity extends AppCompatActivity {
     private WebView vKlassLoginWrapper;
     @Inject
-    LoginCookieProvider loginCookieProvider;
+    CredentialProvider credentialProvider;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         EdgeToEdge.enable(this);
-
-        loginCookieProvider.cookieAvailable((cookieAvailable) -> {
-            if (cookieAvailable)
-                return;
-
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        });
-
         setContentView(R.layout.activity_login);
 
         vKlassLoginWrapper = findViewById(R.id.vklass_login_wrapper);
@@ -114,16 +103,18 @@ public class LoginActivity extends AppCompatActivity {
                     // Why? I have no idea. Don't touch.
                     return true;
                 } else if (url.getScheme().equals("vklass")) {
-                    loginCookieProvider.updateKey(
+                    credentialProvider.login(
                             URLDecoder.decode(
                                     new Regex("(?<=code=).+").find(url_string, 0).getValue(),
                                     Charsets.UTF_8
-                            )
+                            ),
+                            (object) -> {
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+                            }
                     );
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
                 } else {
                     view.loadUrl(url_string);
                 }

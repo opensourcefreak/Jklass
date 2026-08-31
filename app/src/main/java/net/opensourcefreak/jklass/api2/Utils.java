@@ -1,7 +1,9 @@
 package net.opensourcefreak.jklass.api2;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.widget.Toast;
 
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -13,6 +15,9 @@ import javax.inject.Singleton;
 import kotlin.text.Regex;
 
 public abstract class Utils {
+    public static final String CLIENT_ID = "saP/dbUFDhefu/Oyz.api.vklass.se";
+    public static final String CLIENT_SECRET = "AL34uIE23L5KUF45vEW/uKQFdjdsjknsdkjsu7AF7eqgsddsdje3d";
+
     public static String extractVklassJson(String item) {
         String json = new Regex("enhancer\\.enhanceServerHtml\\([^\\{\\}]+((?:\\{).+(?:\\}))[^)]+\\)")
                 .find(item, 0).getGroups().get(1).getValue();

@@ -11,8 +11,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class LoginInterceptor implements Interceptor {
-    private LoginCookieProvider loginCookieProvider;
-    private String cookie;
+    @Inject
+    CredentialProvider credentialProvider;
 
     @NonNull
     @Override
@@ -23,7 +23,7 @@ public class LoginInterceptor implements Interceptor {
         Response response = chain.proceed(request);
         if (response.code() == 302) {
             response.close();
-            cookie = loginCookieProvider.getCookie();
+            credentialProvider.refreshCookie();
             request = applyAuthCookie(request);
             return chain.proceed(request);
         }
@@ -33,15 +33,10 @@ public class LoginInterceptor implements Interceptor {
 
     private Request applyAuthCookie(Request request) {
         return request.newBuilder()
-                .header("Cookie", "se.vklass.authentication=" + cookie + ";")
+                .header("Cookie", "se.vklass.authentication=" + credentialProvider.getCookie() + ";")
                 .build();
     }
 
     @Inject
-    public LoginInterceptor(LoginCookieProvider loginCookieProvider, Utils.ThreadUtils threadUtils) {
-        this.loginCookieProvider = loginCookieProvider;
-        /*threadUtils.runOnThreadPool(() ->
-            cookie = loginCookieProvider.getCookie()
-        );*/
-    }
+    public LoginInterceptor() {}
 }

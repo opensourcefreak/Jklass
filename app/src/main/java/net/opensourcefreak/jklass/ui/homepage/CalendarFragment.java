@@ -31,7 +31,7 @@ public class CalendarFragment extends Fragment {
     CalendarProvider calendarProvider;
 
     public CalendarFragment() {
-        super(R.layout.calendar_fragment);
+        super(R.layout.fragment_calendar);
     }
 
     @Override

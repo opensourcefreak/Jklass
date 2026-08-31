@@ -10,7 +10,7 @@ android {
 
     compileSdk = 37
     defaultConfig {
-        applicationId "net.opensourcefreak.vklass2"
+        applicationId "net.opensourcefreak.jklass"
         minSdk 33
         targetSdk 37
         versionCode 1
@@ -46,4 +46,8 @@ dependencies {
     implementation libs.okhttp
     implementation libs.logging.interceptor
     ksp libs.hilt.compiler
+    implementation libs.glide
+    implementation libs.okhttp3.integration
+    implementation libs.annotations
+    annotationProcessor libs.compiler
 }

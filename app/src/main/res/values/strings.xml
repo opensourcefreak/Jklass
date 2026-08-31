@@ -10,6 +10,7 @@
     <string name="attendance_fragment_name">Närvaro</string>
     <string name="event_cancelled">Inställd</string>
     <string name="week_num_text">Vecka %1$d</string>
+    <string name="published">Publicerad den %1$s</string>
 
     <string-array name="week_day_letters">
         <item>M</item>
