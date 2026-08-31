@@ -1,14 +1,11 @@
-package net.opensourcefreak.jklass.ui.homepage;
+package net.opensourcefreak.jklass.app.ui.homepage;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,11 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import net.opensourcefreak.jklass.R;
+import net.opensourcefreak.jklass.app.R;
 import net.opensourcefreak.jklass.api2.data.homepage.HomepageData;
 import net.opensourcefreak.jklass.api2.data.homepage.NewsItem;
 import net.opensourcefreak.jklass.api2.impls.HomepageDataProvider;
-import net.opensourcefreak.jklass.external.StringCompatUtil;
+import net.opensourcefreak.jklass.app.external.StringCompatUtil;
 
 import java.util.List;
 

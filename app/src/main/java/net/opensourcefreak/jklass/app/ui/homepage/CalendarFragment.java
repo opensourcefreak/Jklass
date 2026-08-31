@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.ui.homepage;
+package net.opensourcefreak.jklass.app.ui.homepage;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,9 +15,9 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-import net.opensourcefreak.jklass.R;
+import net.opensourcefreak.jklass.app.R;
 import net.opensourcefreak.jklass.api2.impls.CalendarProvider;
-import net.opensourcefreak.jklass.views.CalendarLayout;
+import net.opensourcefreak.jklass.app.views.CalendarLayout;
 
 import java.util.Calendar;
 

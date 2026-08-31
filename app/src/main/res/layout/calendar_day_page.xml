@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <net.opensourcefreak.jklass.views.CalendarLayout
+    <net.opensourcefreak.jklass.app.views.CalendarLayout
         android:id="@+id/calendar_holder"
         android:layout_width="match_parent"
         android:layout_height="0dp"

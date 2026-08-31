@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.views;
+package net.opensourcefreak.jklass.app.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 
-import net.opensourcefreak.jklass.R;
+import net.opensourcefreak.jklass.app.R;
 import net.opensourcefreak.jklass.api2.data.calendar.Event;
 
 import java.text.SimpleDateFormat;

@@ -7,7 +7,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import net.opensourcefreak.jklass.R;
 import net.opensourcefreak.jklass.api2.Utils;
 import net.opensourcefreak.jklass.api2.data.calendar.Event;
 import net.opensourcefreak.jklass.api2.ApiCallback;

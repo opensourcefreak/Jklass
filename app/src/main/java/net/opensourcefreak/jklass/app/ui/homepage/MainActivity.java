@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.ui.homepage;
+package net.opensourcefreak.jklass.app.ui.homepage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import net.opensourcefreak.jklass.R;
+import net.opensourcefreak.jklass.app.R;
 import net.opensourcefreak.jklass.api2.CredentialProvider;
-import net.opensourcefreak.jklass.ui.LoginActivity;
+import net.opensourcefreak.jklass.app.ui.LoginActivity;
 
 import javax.inject.Inject;
 

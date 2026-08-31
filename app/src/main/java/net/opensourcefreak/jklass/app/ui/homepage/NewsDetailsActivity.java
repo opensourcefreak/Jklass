@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.ui.homepage;
+package net.opensourcefreak.jklass.app.ui.homepage;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -21,10 +21,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import net.opensourcefreak.jklass.R;
+import net.opensourcefreak.jklass.app.R;
 import net.opensourcefreak.jklass.api2.data.homepage.NewsAttachment;
 import net.opensourcefreak.jklass.api2.data.homepage.NewsItem;
-import net.opensourcefreak.jklass.external.StringCompatUtil;
+import net.opensourcefreak.jklass.app.external.StringCompatUtil;
 
 import java.util.List;
 

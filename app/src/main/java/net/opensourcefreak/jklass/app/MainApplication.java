@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass;
+package net.opensourcefreak.jklass.app;
 
 import android.app.Application;
 

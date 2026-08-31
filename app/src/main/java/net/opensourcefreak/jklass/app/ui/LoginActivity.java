@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.ui;
+package net.opensourcefreak.jklass.app.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -17,9 +17,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import net.opensourcefreak.jklass.R;
+import net.opensourcefreak.jklass.app.R;
 import net.opensourcefreak.jklass.api2.CredentialProvider;
-import net.opensourcefreak.jklass.ui.homepage.MainActivity;
+import net.opensourcefreak.jklass.app.ui.homepage.MainActivity;
 
 import java.net.URLDecoder;
 

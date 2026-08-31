@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.views;
+package net.opensourcefreak.jklass.app.views;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -7,8 +7,8 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import net.opensourcefreak.jklass.R;
 import net.opensourcefreak.jklass.api2.data.calendar.Event;
+import net.opensourcefreak.jklass.app.R;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -41,7 +41,7 @@ public class CalendarLayout extends ViewGroup {
 
         Rect childLayoutRect = new Rect();
         for (int i = 0; i < countChildren; i++) {
-            CalendarEventView child = (CalendarEventView) getChildAt(i);
+            net.opensourcefreak.jklass.app.views.CalendarEventView child = (net.opensourcefreak.jklass.app.views.CalendarEventView) getChildAt(i);
 
             childLayoutRect.right = right - child_margins;
             childLayoutRect.left = left + child_margins;
@@ -71,7 +71,7 @@ public class CalendarLayout extends ViewGroup {
         );
 
         for (int i = 0; i < getChildCount(); i++) {
-            CalendarEventView child = (CalendarEventView) getChildAt(i);
+            net.opensourcefreak.jklass.app.views.CalendarEventView child = (net.opensourcefreak.jklass.app.views.CalendarEventView) getChildAt(i);
             float childHeightFraction =
                     ((float) (child.event.end.getTime() - startDate.getTime()) / TOTAL_TIME) -
                             ((float) (child.event.start.getTime() - startDate.getTime()) / TOTAL_TIME);
@@ -102,7 +102,7 @@ public class CalendarLayout extends ViewGroup {
         data.forEach((event -> {
             // If it's not 1 then it's trash
             if (event.eventType == 1) {
-                CalendarEventView v = (CalendarEventView) LayoutInflater.from(getContext()).inflate(R.layout.calendar_event, CalendarLayout.this, false);
+                net.opensourcefreak.jklass.app.views.CalendarEventView v = (net.opensourcefreak.jklass.app.views.CalendarEventView) LayoutInflater.from(getContext()).inflate(R.layout.calendar_event, CalendarLayout.this, false);
                 addView(
                         v
                 );

@@ -6,8 +6,8 @@
 
     <fragment
         android:id="@+id/schedule"
-        android:name="net.opensourcefreak.jklass.ui.homepage.CalendarFragment"/>
+        android:name="net.opensourcefreak.jklass.app.ui.homepage.CalendarFragment"/>
     <fragment
         android:id="@+id/feed"
-        android:name="net.opensourcefreak.jklass.ui.homepage.FeedFragment"/>
+        android:name="net.opensourcefreak.jklass.app.ui.homepage.FeedFragment"/>
 </navigation>

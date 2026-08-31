@@ -5,4 +5,4 @@
     android:id="@+id/vklass_login_wrapper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginActivity"/>
+    tools:context=".app.ui.LoginActivity"/>

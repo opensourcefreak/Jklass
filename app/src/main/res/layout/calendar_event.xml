@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<net.opensourcefreak.jklass.views.CalendarEventView xmlns:android="http://schemas.android.com/apk/res/android"
+<net.opensourcefreak.jklass.app.views.CalendarEventView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -77,4 +77,4 @@
                 android:textSize="14sp"/>
         </LinearLayout>
     </LinearLayout>
-</net.opensourcefreak.jklass.views.CalendarEventView>
+</net.opensourcefreak.jklass.app.views.CalendarEventView>

@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.ui.homepage;
+package net.opensourcefreak.jklass.app.ui.homepage;
 
 import androidx.viewpager2.widget.ViewPager2;
 

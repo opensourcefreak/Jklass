@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.external;
+package net.opensourcefreak.jklass.app.external;
 
 public abstract class StringCompatUtil {
 

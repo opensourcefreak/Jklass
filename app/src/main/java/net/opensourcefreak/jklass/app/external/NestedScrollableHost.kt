@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package net.opensourcefreak.jklass.external
+package net.opensourcefreak.jklass.app.external
 
 import android.content.Context
 import android.util.AttributeSet
