@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name" translatable="false">Jklass</string>
 
+    <string name="widget_description">See the next class</string>
+    <string name="widget_empty">No more classes today</string>
+    <string name="widget_not_logged_in">Log in to see the next class</string>
+    <string name="no_internet">No internet</string>
+    <string name="dummy_teacher">Teacher</string>
+    <string name="dummy_time" translatable="false">12:00–13:00</string>
+    <string name="dummy_room">Room</string>
+    <string name="dummy_class">Class</string>
+
     <string name="greeting">Hello, %1$s</string>
     <string name="main_fragment_name">Feed</string>
     <string name="schedule_fragment_name">Schedule</string>

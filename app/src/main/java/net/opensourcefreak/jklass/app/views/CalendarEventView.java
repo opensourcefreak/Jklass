@@ -40,10 +40,9 @@ public class CalendarEventView extends CardView {
         TextView eventName = findViewById(R.id.event_name);
         eventName.setText(event.title);
         ((TextView) findViewById(R.id.time_text)).setText(
-            dateFormat.format(event.start) + " - " + dateFormat.format(event.end)
+            dateFormat.format(event.start) + " – " + dateFormat.format(event.end)
         );
 
-        // For some reason these fucktards were too lazy to create separate fields
         String[] locationFields = event.location.split(" \\| ");
         ((TextView) findViewById(R.id.location_text)).setText(locationFields[0]);
         ((TextView) findViewById(R.id.teacher_text)).setText(locationFields[1]);

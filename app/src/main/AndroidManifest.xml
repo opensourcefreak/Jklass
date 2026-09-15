@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -19,11 +20,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.LoginActivity"
             android:exported="false"/>
+
         <activity
             android:name=".ui.homepage.NewsDetailsActivity"
             android:exported="false"/>
+
+        <receiver android:name=".widget.NextEventAppWidgetProvider"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/next_event_widget_provider_info" />
+        </receiver>
+
     </application>
 </manifest>

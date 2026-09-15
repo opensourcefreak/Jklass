@@ -19,6 +19,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -73,9 +74,14 @@ public class CalendarProvider {
                 }
 
 
-                List<Event> ret = gson.fromJson(new InputStreamReader(response.body().byteStream()),
+                List<Event> data = gson.fromJson(new InputStreamReader(response.body().byteStream()),
                         TypeToken.getParameterized(List.class, Event.class).getType()
                 );
+
+                // If it's not type 1 then it's trash
+                List<Event> ret = data.stream().filter((event) ->
+                        event.eventType == 1
+                ).collect(Collectors.toList());
 
                 threadUtils.runOnMainThread( () ->
                     callback.invoke(ret)

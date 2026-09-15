@@ -100,14 +100,11 @@ public class CalendarLayout extends ViewGroup {
         startDate = day.getTime();
 
         data.forEach((event -> {
-            // If it's not 1 then it's trash
-            if (event.eventType == 1) {
-                net.opensourcefreak.jklass.app.views.CalendarEventView v = (net.opensourcefreak.jklass.app.views.CalendarEventView) LayoutInflater.from(getContext()).inflate(R.layout.calendar_event, CalendarLayout.this, false);
-                addView(
-                        v
-                );
-                v.populateData(event);
-            }
+            CalendarEventView v = (CalendarEventView) LayoutInflater.from(getContext()).inflate(R.layout.calendar_event, CalendarLayout.this, false);
+            addView(
+                    v
+            );
+            v.populateData(event);
         }));
     }
 }

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="widget_description">Se nästa lektion</string>
+    <string name="widget_empty">Inga fler lektioner idag</string>
+    <string name="widget_not_logged_in">Logga in för att se nästa händelse</string>
+    <string name="no_internet">Inget internet</string>
+    <string name="dummy_teacher">Lärare</string>
+    <string name="dummy_room">Rum</string>
+    <string name="dummy_class">Lektion</string>
+
     <string name="greeting">Goddagens, %1$s</string>
     <string name="main_fragment_name">Flöde</string>
     <string name="schedule_fragment_name">Schema</string>
