@@ -17,7 +17,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import net.opensourcefreak.jklass.app.R;
 import net.opensourcefreak.jklass.api2.impls.CalendarProvider;
-import net.opensourcefreak.jklass.app.views.CalendarLayout;
+import net.opensourcefreak.jklass.app.ui.views.CalendarLayout;
 
 import java.util.Calendar;
 

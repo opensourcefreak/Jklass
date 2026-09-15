@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.app.views;
+package net.opensourcefreak.jklass.app.ui.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

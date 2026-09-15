@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.app.views;
+package net.opensourcefreak.jklass.app.ui.views;
 
 import android.content.Context;
 import android.graphics.Rect;
@@ -41,7 +41,7 @@ public class CalendarLayout extends ViewGroup {
 
         Rect childLayoutRect = new Rect();
         for (int i = 0; i < countChildren; i++) {
-            net.opensourcefreak.jklass.app.views.CalendarEventView child = (net.opensourcefreak.jklass.app.views.CalendarEventView) getChildAt(i);
+            CalendarEventView child = (CalendarEventView) getChildAt(i);
 
             childLayoutRect.right = right - child_margins;
             childLayoutRect.left = left + child_margins;
@@ -71,7 +71,7 @@ public class CalendarLayout extends ViewGroup {
         );
 
         for (int i = 0; i < getChildCount(); i++) {
-            net.opensourcefreak.jklass.app.views.CalendarEventView child = (net.opensourcefreak.jklass.app.views.CalendarEventView) getChildAt(i);
+            CalendarEventView child = (CalendarEventView) getChildAt(i);
             float childHeightFraction =
                     ((float) (child.event.end.getTime() - startDate.getTime()) / TOTAL_TIME) -
                             ((float) (child.event.start.getTime() - startDate.getTime()) / TOTAL_TIME);
