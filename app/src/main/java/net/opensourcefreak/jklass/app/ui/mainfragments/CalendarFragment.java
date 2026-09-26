@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.app.ui.homepage;
+package net.opensourcefreak.jklass.app.ui.mainfragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +20,8 @@ import net.opensourcefreak.jklass.api2.impls.CalendarProvider;
 import net.opensourcefreak.jklass.app.ui.views.CalendarLayout;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -149,6 +151,33 @@ public class CalendarFragment extends Fragment {
                     ((CalendarLayout) view.findViewById(R.id.calendar_holder)).populateData(calendarData, day)
                 );
             }
+        }
+    }
+
+    public static class CalendarDaySyncer {
+        // ??????
+        public int activeDay = Calendar.getInstance().get(Calendar.DAY_OF_WEEK) - 2;
+        private final Map<DayChangeListener, Integer> listeners = new HashMap<>();
+        private final ViewPager2 viewPager;
+
+        public CalendarDaySyncer(ViewPager2 viewPager) {
+            this.viewPager = viewPager;
+        }
+
+        public void setActiveDay(int day) {
+            this.activeDay = day;
+            listeners.forEach((listener, page) -> {
+                if (viewPager.getCurrentItem() != page)
+                    listener.onDayUpdate(day);
+            });
+        }
+
+        public void registerDayChangeListener(DayChangeListener listener, int page) {
+            listeners.put(listener, page);
+        }
+
+        public interface DayChangeListener {
+            void onDayUpdate(int day);
         }
     }
 }

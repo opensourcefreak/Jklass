@@ -11,9 +11,9 @@
         android:enabled="true"
         android:icon="@drawable/news_24px"
         android:title="@string/main_fragment_name"/>
-    <!--item
-        android:id="@+id/attendance"
+    <item
+        android:id="@+id/more"
         android:enabled="true"
-        android:icon="@drawable/assignment_late_24px"
-        android:title="@string/attendance_fragment_name"/-->
+        android:icon="@drawable/menu_24px"
+        android:title="@string/more"/>
 </menu>

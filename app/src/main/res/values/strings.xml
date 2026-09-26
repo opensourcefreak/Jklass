@@ -10,13 +10,16 @@
     <string name="dummy_room">Room</string>
     <string name="dummy_class">Class</string>
 
+    <string name="menu_week">Menu for week %1$d</string>
+    <string name="menu">Menu</string>
+
     <string name="greeting">Hello, %1$s</string>
     <string name="main_fragment_name">Feed</string>
     <string name="schedule_fragment_name">Schedule</string>
-    <string name="attendance_fragment_name">Attendance</string>
     <string name="event_cancelled">Cancelled</string>
     <string name="week_num_text">Week %1$d</string>
     <string name="published">Published on %1$s</string>
+    <string name="more">More</string>
 
     <string-array name="week_day_letters">
         <item>M</item>

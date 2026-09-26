@@ -8,13 +8,16 @@
     <string name="dummy_room">Rum</string>
     <string name="dummy_class">Lektion</string>
 
+    <string name="menu_week">Matsedel för vecka %1$d</string>
+    <string name="menu">Matsedel</string>
+
     <string name="greeting">Goddagens, %1$s</string>
     <string name="main_fragment_name">Flöde</string>
     <string name="schedule_fragment_name">Schema</string>
-    <string name="attendance_fragment_name">Närvaro</string>
     <string name="event_cancelled">Inställd</string>
     <string name="week_num_text">Vecka %1$d</string>
     <string name="published">Publicerad den %1$s</string>
+    <string name="more">Mer</string>
 
     <string-array name="week_day_letters">
         <item>M</item>

@@ -31,6 +31,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class CalendarProvider {
     @Inject
@@ -73,10 +74,11 @@ public class CalendarProvider {
                     throw new RuntimeException(e);
                 }
 
-
-                List<Event> data = gson.fromJson(new InputStreamReader(response.body().byteStream()),
+                ResponseBody body = response.body();
+                List<Event> data = gson.fromJson(new InputStreamReader(body.byteStream()),
                         TypeToken.getParameterized(List.class, Event.class).getType()
                 );
+                body.close();
 
                 // If it's not type 1 then it's trash
                 List<Event> ret = data.stream().filter((event) ->

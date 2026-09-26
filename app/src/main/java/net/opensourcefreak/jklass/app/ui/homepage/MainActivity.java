@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -25,6 +27,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class MainActivity extends AppCompatActivity {
     @Inject
     CredentialProvider credentialProvider;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,21 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        NavOptions navOptions = new NavOptions.Builder()
+                .setPopUpTo(R.id.more, true, false)
+                .setLaunchSingleTop(true)
+                .build();
+
+        navController =
+                ((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.content_fragment))
+                .getNavController();
         NavigationUI.setupWithNavController(
                 (BottomNavigationView) findViewById(R.id.bottom_navigation),
-                ((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.content_fragment)).getNavController()
+                navController
         );
+    }
+
+    public NavController getNavController() {
+        return navController;
     }
 }

@@ -1,8 +1,8 @@
 package net.opensourcefreak.jklass.api2.data.homepage;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class HomepageData {
     public String firstName;
-    public ArrayList<NewsItem> newsItems;
+    public List<NewsItem> newsItems;
 }

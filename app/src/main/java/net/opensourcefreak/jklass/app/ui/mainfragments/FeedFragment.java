@@ -1,4 +1,4 @@
-package net.opensourcefreak.jklass.app.ui.homepage;
+package net.opensourcefreak.jklass.app.ui.mainfragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +18,7 @@ import net.opensourcefreak.jklass.api2.data.homepage.HomepageData;
 import net.opensourcefreak.jklass.api2.data.homepage.NewsItem;
 import net.opensourcefreak.jklass.api2.impls.HomepageDataProvider;
 import net.opensourcefreak.jklass.app.external.StringCompatUtil;
+import net.opensourcefreak.jklass.app.ui.homepage.NewsDetailsActivity;
 
 import java.util.List;
 
@@ -41,15 +42,15 @@ public class FeedFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         homepageDataProvider.buildHomePageData((homepageData) -> {
-            this.homepageData = homepageData;
+            FeedFragment.this.homepageData = homepageData;
+            if (!isAdded())
+                populateData();
         });
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-        View view = getView();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         newsList = view.findViewById(R.id.news_list);
         newsList.setLayoutManager(new LinearLayoutManager(getActivity()) {
@@ -58,6 +59,11 @@ public class FeedFragment extends Fragment {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
 
         if (homepageData != null) {
             populateData();
