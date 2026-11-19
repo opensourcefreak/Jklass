@@ -40,7 +40,7 @@ public class CalendarProvider {
     OkHttpClient okHttpClient;
 
     @Inject
-    public CalendarProvider() {}
+    CalendarProvider() {}
 
     public void buildCalendarData(final Calendar day, final ApiCallback<List<Event>> callback) {
         threadUtils.runOnThreadPool(() -> {

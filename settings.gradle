@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "JKlass"
 include ':app'
 include ':api2'
+include ':notificationreceiver'

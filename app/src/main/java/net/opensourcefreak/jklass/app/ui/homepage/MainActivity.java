@@ -1,10 +1,16 @@
 package net.opensourcefreak.jklass.app.ui.homepage;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -15,6 +21,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import net.opensourcefreak.jklass.app.MainApplication;
 import net.opensourcefreak.jklass.app.R;
 import net.opensourcefreak.jklass.api2.CredentialProvider;
 import net.opensourcefreak.jklass.app.ui.LoginActivity;
@@ -38,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
+            return;
         }
 
         setContentView(R.layout.activity_main);
@@ -60,6 +68,17 @@ public class MainActivity extends AppCompatActivity {
                 (BottomNavigationView) findViewById(R.id.bottom_navigation),
                 navController
         );
+
+        // Don't pester the user
+        SharedPreferences prefs = getSharedPreferences("NotificationData", Context.MODE_PRIVATE);
+        if (prefs.getBoolean("ShouldAskPermission", true) && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("ShouldAskPermission", false);
+            editor.apply();
+
+            Log.d("Reqwestuing", "oremission");
+            requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 0);
+        }
     }
 
     public NavController getNavController() {

@@ -1,0 +1,8 @@
+<resources>
+    <string name="fcm_projectid">vklass-android-app</string>
+    <string name="fcm_apikey">AIzaSyBKQaryiTZros3PbJ5QmE1tw59zGW2a4_c</string>
+    <string name="fcm_appid">1:638636921420:android:3e465b74e051e9a8</string>
+    <string name="fcm_senderid">638636921420</string>
+    <string name="fcm_databaseurl">https://vklass-android-app.firebaseio.com</string>
+    <string name="fcm_storagebucket">vklass-android-app.appspot.com</string>
+</resources>

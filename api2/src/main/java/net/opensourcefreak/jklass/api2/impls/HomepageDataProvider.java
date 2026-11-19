@@ -36,7 +36,7 @@ public class HomepageDataProvider {
     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 
     @Inject
-    public HomepageDataProvider() {}
+    HomepageDataProvider() {}
 
     public void buildHomePageData(ApiCallback<HomepageData> callback) {
         threadUtils.runOnThreadPool(() -> {

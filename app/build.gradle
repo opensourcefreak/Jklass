@@ -50,4 +50,5 @@ dependencies {
     implementation libs.annotations
     annotationProcessor libs.compiler
     implementation project(':api2')
+    implementation project(':notificationreceiver')
 }

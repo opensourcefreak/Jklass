@@ -8,6 +8,7 @@ import net.opensourcefreak.jklass.api2.data.internal.AuthData;
 
 import java.io.IOException;
 import java.time.Instant;
+import java.util.ArrayList;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -25,14 +26,31 @@ import okhttp3.Response;
 
 @Singleton
 public class CredentialProvider {
-    AuthData authData;
+    private AuthData authData;
     @Inject
     @ApplicationContext
     Context context;
-    OkHttpClient okHttpClient = new OkHttpClient.Builder()
+    private OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .followRedirects(false)
             .build();
-    Utils.ThreadUtils threadUtils;
+    private Utils.ThreadUtils threadUtils;
+    private ArrayList<ApiCallback<Boolean>> loginCallbacks = new ArrayList();
+
+    @Inject
+    public CredentialProvider(Utils.ThreadUtils threadUtils, AuthData authData) {
+        this.threadUtils = threadUtils;
+        this.authData = authData;
+        threadUtils.runOnThreadPool(() -> {
+            if (!isLoggedIn())
+                return;
+
+            refreshTokens();
+        });
+    }
+
+    public void registerOnLoggedInCallback(ApiCallback<Boolean> callback) {
+        loginCallbacks.add(callback);
+    }
 
     public boolean isLoggedIn() {
         return authData.expiryTime > Instant.now().getEpochSecond();
@@ -41,6 +59,11 @@ public class CredentialProvider {
     @Nullable
     public String getCookie() {
         return authData.cookie;
+    }
+
+    @Nullable
+    public String getBearerToken() {
+        return authData.access_token;
     }
 
     public void refreshCookie() {
@@ -125,21 +148,14 @@ public class CredentialProvider {
             }
             authData.saveState(context);
             refreshCookie();
-            threadUtils.runOnMainThread(() ->
-                    callback.invoke(null)
+            threadUtils.runOnMainThread(() -> {
+                    callback.invoke(null);
+                    Boolean mIsLoggedIn = isLoggedIn();
+                    loginCallbacks.forEach((loginCallback) -> {
+                        loginCallback.invoke(mIsLoggedIn);
+                    });
+                }
             );
-        });
-    }
-
-    @Inject
-    public CredentialProvider(Utils.ThreadUtils threadUtils, AuthData authData) {
-        this.threadUtils = threadUtils;
-        this.authData = authData;
-        threadUtils.runOnThreadPool(() -> {
-            if (!isLoggedIn())
-                return;
-
-            refreshTokens();
         });
     }
 }
